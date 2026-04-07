@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="SWARM — A mesmerizing 3D particle simulation featuring 20,000+ interactive particles with real-time controls. Experience cosmic neural networks, fractal attractors, and hyper-dimensional geometry.">
+    <title>SWARM — 3D Particle Universe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="loader-inner">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-text">
+                <span class="loader-label">INITIALIZING</span>
+                <span class="loader-dots">...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Top Navigation Bar -->
+    <header id="top-bar" class="top-bar glass-panel">
+        <div class="logo-group">
+            <div class="logo-icon">
+                <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                    <circle cx="14" cy="14" r="12" stroke="url(#logoGrad)" stroke-width="1.5" opacity="0.6"/>
+                    <circle cx="14" cy="14" r="6" stroke="url(#logoGrad)" stroke-width="1.5"/>
+                    <circle cx="14" cy="14" r="2" fill="url(#logoGrad)"/>
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0" y1="0" x2="28" y2="28">
+                            <stop stop-color="#a78bfa"/>
+                            <stop offset="1" stop-color="#38bdf8"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <h1 class="logo-text">SWARM</h1>
+        </div>
+        <nav class="nav-links">
+            <button class="nav-btn active" data-preset="cosmicNeural" id="nav-cosmic">Cosmic Neural</button>
+            <button class="nav-btn" data-preset="lorenzAttractor" id="nav-lorenz">Lorenz Attractor</button>
+            <button class="nav-btn" data-preset="tesseract" id="nav-tesseract">Tesseract 4D</button>
+            <button class="nav-btn" data-preset="dnaHelix" id="nav-dna">DNA Helix</button>
+            <button class="nav-btn" data-preset="galaxySpiral" id="nav-galaxy">Galaxy Spiral</button>
+        </nav>
+        <div class="nav-right">
+            <div class="particle-count-badge" id="particle-badge">
+                <span class="badge-dot"></span>
+                <span id="particle-count-display">20,000</span> particles
+            </div>
+        </div>
+    </header>
+
+    <!-- HUD Info Panel -->
+    <div id="hud-panel" class="hud-panel glass-panel">
+        <div class="hud-title" id="hud-title">Cosmic Neural Network</div>
+        <div class="hud-desc" id="hud-desc">Neurons firing across a cosmic synapse field</div>
+        <div class="hud-stats">
+            <div class="hud-stat">
+                <span class="stat-label">FPS</span>
+                <span class="stat-value" id="fps-display">60</span>
+            </div>
+            <div class="hud-stat">
+                <span class="stat-label">TIME</span>
+                <span class="stat-value" id="time-display">0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Controls Panel -->
+    <div id="controls-panel" class="controls-panel glass-panel">
+        <div class="controls-header">
+            <h2 class="controls-title">Parameters</h2>
+            <button class="controls-toggle" id="controls-toggle" aria-label="Toggle Controls">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                    <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                </svg>
+            </button>
+        </div>
+        <div class="controls-body" id="controls-body">
+            <!-- Dynamic controls will be injected here -->
+        </div>
+    </div>
+
+    <!-- 3D Annotations Container -->
+    <div id="annotations-container"></div>
+
+    <!-- Bottom Info Bar -->
+    <footer id="bottom-bar" class="bottom-bar glass-panel">
+        <div class="footer-left">
+            <span class="footer-hint">Drag to orbit · Scroll to zoom · Click presets above</span>
+        </div>
+        <div class="footer-right">
+            <span class="footer-tech">Three.js · WebGL · 60fps</span>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="presets.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
